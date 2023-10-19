@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const User = require("./User");
 
 const reviewSchema = new Schema({
   reviewContent: {
@@ -7,13 +8,18 @@ const reviewSchema = new Schema({
     minlength: 1,
   },
   reviewAuthor: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  property: {
+    type: Schema.Types.ObjectId,
+    ref: "Property",
     required: true,
   },
   createdAt: {
     type: Date,
     default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
   },
   comments: [
     {

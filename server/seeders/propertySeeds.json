@@ -1,0 +1,20 @@
+[
+    {
+        "name": "WZUP",
+        "address": "123 Nappy Wilson St, Detroit, MI, 12345",
+        "unitStyles": "Studio - 2 bedroom",
+        "totalUnits": 50
+      },
+      {
+        "name": "Keep It Real",
+        "address": "456 House Party Ave, Ann Arbor, MI, 54321",
+        "unitStyles": ["2 bedroom - 3 bedroom"],
+        "totalUnits": 30
+      },
+      {
+        "name": "Word on the Street",
+        "address": "789 Dark Lovely Ln, Grand Rapids, MI, 02468",
+        "unitStyles": ["Studio - 1 bedroom"],
+        "totalUnits": 40
+      }
+]
