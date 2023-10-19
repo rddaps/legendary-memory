@@ -50,7 +50,7 @@ const Property = () => {
           await addReview({
             variables: { propertyId, reviewContent: reviewContent }
           });
-        } catch (error) {
+        } catch (err) {
           console.error(err);
         }
       };
@@ -66,7 +66,7 @@ const Property = () => {
           await addComment({
             variables: { reviewId, commentText: commentText }
           });
-        } catch (error) {
+        } catch (err) {
           console.error(err);
         }
       };
