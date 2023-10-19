@@ -5,26 +5,25 @@ const typeDefs = gql`
     _id: ID
     username: String!
     email: String!
-    password: String
-    properties: [Property]!
     reviews: [Review]!
   }
 
   type Property {
     _id: ID
-    name: String
+    name: String!
     address: String!
     unitStyles: String!
     totalUnits: Int!
-    reviews: [Review]!
+    reviews: [Review]
   }
 
   type Review {
     _id: ID
     reviewContent: String!
-    reviewAuthor: String
+    reviewAuthor: String!
+    property: Property!
     createdAt: String
-    comments: [Comment]!
+    comments: [Comment]
   }
 
   type Comment {
@@ -43,7 +42,6 @@ const typeDefs = gql`
     properties: [Property]
     property(_id: ID!): Property
     user: User
-    reviews(property: ID): [Review]
   }
 
   type Mutation {

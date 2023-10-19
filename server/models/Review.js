@@ -5,21 +5,20 @@ const reviewSchema = new Schema({
   reviewContent: {
     type: String,
     required: true,
-    minlength: 1,
+    minlength: 1
   },
   reviewAuthor: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
+    type: String,
+    required: true
   },
   property: {
     type: Schema.Types.ObjectId,
     ref: "Property",
-    required: true,
+    required: true
   },
   createdAt: {
     type: Date,
-    default: Date.now,
+    default: Date.now
   },
   comments: [
     {
@@ -35,8 +34,7 @@ const reviewSchema = new Schema({
       },
       createdAt: {
         type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
+        default: Date.now
       },
     },
   ],

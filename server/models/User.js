@@ -18,12 +18,6 @@ const userSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  properties: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Property",
-    }
-  ],
   reviews: [
     {
       type: Schema.Types.ObjectId,
