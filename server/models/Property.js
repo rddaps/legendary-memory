@@ -19,6 +19,9 @@ const propertySchema = new Schema({
     type: Number,
     required: true,
   },
+  image: {
+    type: String
+  },
   reviews: [
     {
       type: Schema.Types.ObjectId,

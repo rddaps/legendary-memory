@@ -4,11 +4,17 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    properties: async () => Property.find(),
-    property: async (parent, { id }) =>
-      Property.findById(id).populate("property"),
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("property");
+    properties: async () => {
+      return await Property.find();
+    },
+    property: async (parent, { _id }) => {
+      return await Property.findById(_id).populate("property");
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("reviews");
+      }
+      throw new AuthenticationError("You gotta log in!");
     },
   },
 
@@ -75,12 +81,12 @@ const resolvers = {
           reviewAuthor: context.user.username,
         });
 
-        await User.findOneAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { reviews: review._id } }
         );
 
-        return review;
+        return updatedUser;
       }
       throw new AuthenticationError("You gotta log in!");
     },
@@ -101,14 +107,18 @@ const resolvers = {
       }
       throw new AuthenticationError("You gotta log in!");
     },
-    updateProperty: async (parent, { id, totalUnits }) => {
+    updateProperty: async (parent, { id, totalUnits }, context) => {
       const decrement = Math.abs(totalUnits) * -1;
 
-      return Property.findByIdAndUpdate(
-        id,
-        { $inc: { quantity: decrement } },
-        { new: true }
-      );
+      if (context.user) {
+        const updatedProperty = await Property.findByIdAndUpdate(
+          id,
+          { $inc: { totalUnits: decrement } },
+          { new: true }
+        );
+        return updatedProperty;
+      }
+      throw new AuthenticationError("You gotta log in!");
     },
   },
 };

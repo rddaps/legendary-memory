@@ -14,6 +14,7 @@ const typeDefs = gql`
     address: String!
     unitStyles: String!
     totalUnits: Int!
+    image: String
     reviews: [Review]
   }
 
@@ -41,7 +42,7 @@ const typeDefs = gql`
   type Query {
     properties: [Property]
     property(_id: ID!): Property
-    user: User
+    me: User
   }
 
   type Mutation {
@@ -49,7 +50,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addReview(reviewContent: String!): Review
     addComment(reviewId: ID!, commentText: String!): Review
-    removeReview(reviewId: ID!): Review
+    removeReview(reviewId: ID!): User
     removeComment(reviewId: ID!, commentId: ID!): Review
     updateProperty(_id: ID!, totalUnits: Int!): Property
   }
