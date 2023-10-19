@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-colour" content="#1D7526" />
+    <meta
+    name="description"
+    content="Website to view all properties managed by ProperKey"
+  />
+
+    <link rel="proper-key-logo" href="%PUBLIC_URL%/logo.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <link rel="stylesheet" href="../src/index.css">
+
+    <title>ProperKey Management App</title>
+</head>
+
+<body>
+    <div class="welcome-section">
+        <h1>Welcome to Our Property Management App</h1>
+        <div class="properties-list">
+        </div>
+    </div>
+
+    <div class="property-popup" id="propertyPopup">
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <div class="user-dashboard hidden" id="userDashboard">
+        <h2>Welcome, {User!}</h2>
+        <h3>Your Reviews</h3>
+        <div class="user-reviews">
+        </div>
+        <h3>Your Comments</h3>
+        <div class="user-comments">
+        </div>
+    </div>
+</body>
+
+</html>
