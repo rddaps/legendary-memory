@@ -14,8 +14,8 @@ export const QUERY_PROPERTIES = gql`
 `;
 
 export const QUERY_PROPERTY = gql`
-  {
-    property {
+  query getSingleProperty($propertyId: ID!) {
+    property(propertyId: $propertyId) {
       _id
       name
       address

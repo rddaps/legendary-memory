@@ -12,7 +12,7 @@ import { REMOVE_REVIEW, REMOVE_COMMENT } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-const myLiving = () => {
+const MyLiving = () => {
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_ME : null, {
@@ -114,4 +114,4 @@ const myLiving = () => {
   );
 };
 
-export default myLiving;
+export default MyLiving;
