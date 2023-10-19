@@ -50,7 +50,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addReview(reviewContent: String!): Review
     addComment(reviewId: ID!, commentText: String!): Review
-    removeReview(reviewId: ID!): User
+    removeReview(_id: ID!): User
     removeComment(reviewId: ID!, commentId: ID!): Review
     updateProperty(_id: ID!, totalUnits: Int!): Property
   }

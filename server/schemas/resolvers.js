@@ -74,10 +74,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You gotta log in!");
     },
-    removeReview: async (parent, { reviewId }, context) => {
+    removeReview: async (parent, { _id }, context) => {
       if (context.user) {
         const review = await Review.findOneAndDelete({
-          _id: reviewId,
+          _id,
           reviewAuthor: context.user.username,
         });
 
@@ -107,12 +107,12 @@ const resolvers = {
       }
       throw new AuthenticationError("You gotta log in!");
     },
-    updateProperty: async (parent, { id, totalUnits }, context) => {
+    updateProperty: async (parent, { _id, totalUnits }, context) => {
       const decrement = Math.abs(totalUnits) * -1;
 
       if (context.user) {
         const updatedProperty = await Property.findByIdAndUpdate(
-          id,
+          _id,
           { $inc: { totalUnits: decrement } },
           { new: true }
         );
