@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_PROPERTIES } from "../../utils/queries";
+import { QUERY_PROPERTIES } from "../utils/queries";
 import { UPDATE_PROPERTY } from "../utils/mutations";
 
 const PropertyList = () => {
