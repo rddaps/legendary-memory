@@ -1,7 +1,7 @@
 # legendary-memory
   ## Description
 
-A tech blog site, where developers can make posts and share their thoughts. Others can engage through comments with various developer's posts.
+A MERN stack single-page property management application where current and future tenants can see a list of properties managed by a specific company. They can also see general information about each property and reviews left by previous and current tenants. Current tenants are able to sign up or login, to add reviews and comment on other reviews for their current homes.
 
 ## Table of Contents
 
@@ -14,27 +14,26 @@ A tech blog site, where developers can make posts and share their thoughts. Othe
 
 ## Installation
 
-Clone repo and create `.env` file with secure MySQL login info
+Clone repo to your local machine
 <br>
-SOURCE the schema, 
-<br>
+
 Use `npm install` for installing necessary dependencies.
 
 ## Usage
 
-Use `npm run seed` to fill tables with test data and `npm start` to launch the app for use, or utilize the [live deployment]()
+Use `npm run seed` to fill app with test data and `npm start` to launch the app for use, or utilize the [live deployment](https://properkey-4a24cfc9f6dc.herokuapp.com/)
 
 ## Credits
 
-Reference beginner program, [Crowdfunding App](https://git.bootcampcontent.com/University-of-Minnesota/UofM-VIRT-FSF-PT-04-2023-U-LOLC-ENTG/-/tree/main/14-MVC/01-Activities/28-Stu_Mini-Project)
+Referenced various beginner projects from UofM FullStack Coding Program
 
 ## License
 
-This project is licensed under the MIT license.
+This project is licensed under the Apache 2.0 license.
 
 ## Tests
 
-Use login info in user seed or sign up and login, then post new blogs and read and comment on others
+Use login info in user seed or sign up and login, then view properties, write and delete reviews and add or remove comments.
 
 ## Questions/Comments/Concerns
 

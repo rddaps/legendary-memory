@@ -1,4 +1,6 @@
 import React from "react";
+import { Button } from 'react-bootstrap';
+
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 
@@ -20,7 +22,7 @@ const myLiving = () => {
   const user = data?.me || {};
 
   const [removeReview, { error }] = useMutation(REMOVE_REVIEW);
-  const [removeComment, { error }] = useMutation(REMOVE_COMMENT);
+  const [removeComment, { err }] = useMutation(REMOVE_COMMENT);
 
   if (Auth.loggedIn() && Auth.getMyLiving().data.username === userParam) {
     return <Navigate to="/my" />;

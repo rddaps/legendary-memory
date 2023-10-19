@@ -1,7 +1,13 @@
 import React from "react";
+import { Button } from 'react-bootstrap';
+
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PROPERTIES } from "../utils/queries";
 import { UPDATE_PROPERTY } from "../utils/mutations";
+
+import Property from "../components/Property";
+
+import Auth from '../utils/auth';
 
 const PropertyList = () => {
   const { loading, data } = useQuery(QUERY_PROPERTIES);
