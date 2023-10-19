@@ -105,7 +105,7 @@ const MyLiving = () => {
         ))}
         <Button
           className="btn-block btn-danger"
-          onClick={() => handleDeleteComment(review.comment._id)}
+          onClick={() => handleDeleteComment(review._id, review.comment._id)}
         >
           Take it back!
         </Button>
