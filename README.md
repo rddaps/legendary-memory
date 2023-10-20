@@ -23,6 +23,8 @@ Use `npm install` for installing necessary dependencies.
 
 Use `npm run seed` to fill app with test data and `npm start` to launch the app for use, or utilize the [live deployment](https://properkey-4a24cfc9f6dc.herokuapp.com/)
 
+![screenshot of homepage](/client/public/images/homepage.png?raw=true "Homepage")
+
 ## Credits
 
 Referenced various beginner projects from UofM FullStack Coding Program
