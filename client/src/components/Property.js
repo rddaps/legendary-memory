@@ -72,7 +72,10 @@ const Property = ({ name, address, unitStyles, totalUnits, image, reviews }) => 
           <p>Address: {address}</p>
           <p>Unit Styles: {unitStyles}</p>
           <p>Total Units: {totalUnits}</p>
-          <p>Image: {image}</p>
+          <img
+          alt={name}
+          src={`/images/${image}`}
+        />
           <h3>Reviews</h3>
           <ul>
             {reviews.map(review => (
