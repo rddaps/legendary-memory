@@ -9,6 +9,17 @@ export const QUERY_PROPERTIES = gql`
       unitStyles
       totalUnits
       image
+      reviews {
+        reviewContent
+        reviewAuthor
+        createdAt
+        comments {
+          _id
+          commentText
+          commentAuthor
+          createdAt
+        }
+      }
     }
   }
 `;

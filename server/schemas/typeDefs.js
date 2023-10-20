@@ -22,7 +22,6 @@ const typeDefs = gql`
     _id: ID
     reviewContent: String!
     reviewAuthor: String!
-    property: Property!
     createdAt: String
     comments: [Comment]
   }
@@ -48,7 +47,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addReview(reviewContent: String!): Review
+    addReview(propertyId: ID!, reviewContent: String!): Review
     addComment(reviewId: ID!, commentText: String!): Review
     removeReview(_id: ID!): User
     removeComment(reviewId: ID!, commentId: ID!): Review

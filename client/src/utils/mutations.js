@@ -25,8 +25,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_REVIEW = gql`
-  mutation addReview($reviewContent: String!) {
-    addReview(reviewContent: $reviewContent) {
+  mutation addReview($propertyId: ID!, $reviewContent: String!) {
+    addReview(propertyId: $propertyId, reviewContent: $reviewContent) {
       review {
         _id
         reviewContent

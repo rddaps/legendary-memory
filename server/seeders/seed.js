@@ -2,7 +2,7 @@ const db = require("../config/connection");
 const { User, Property, Review } = require("../models");
 const userSeeds = require("./userSeeds.json");
 const propertySeeds = require("./propertySeeds.json");
-const reviewSeeds = require("./reviewtSeeds.json");
+const reviewSeeds = require("./reviewSeeds.json");
 
 db.once("open", async () => {
   try {

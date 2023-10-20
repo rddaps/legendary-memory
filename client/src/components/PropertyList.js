@@ -11,7 +11,8 @@ import Auth from '../utils/auth';
 
 const PropertyList = () => {
   const { loading, data } = useQuery(QUERY_PROPERTIES);
-  const propertyData = data?.property || [];
+  const propertyData = data?.properties || [];
+  console.log('????', data)
 
   const [updateProperty, { error }] = useMutation(UPDATE_PROPERTY);
 
@@ -31,27 +32,27 @@ const PropertyList = () => {
     }
   };
 
-  if (!loading) {
+  if (loading) {
     return <h2>LOADING...</h2>;
   }
-
+  let badkey = 0;
   return (
-    <>
       <div className="property-list">
         <h2>Our Properties:</h2>
         <div className="flex-row"></div>
-        {propertyData.PropertyList.map((property) => (
-          <>
+        {propertyData.map((property) => (
+          <div key={++badkey}>
             <Property
-              key={property._id}
-              _id={property._id}
+              key={++badkey}
               name={property.name}
               address={property.address}
               unitStyles={property.unitStyles}
               totalUnits={property.totalUnits}
               image={property.image}
+              reviews={property.reviews}
             />
             <Button
+              key={++badkey}
               className="btn-block btn-danger"
               onClick={() =>
                 handleUpdateProperty(property._id, property.totalUnits)
@@ -59,10 +60,9 @@ const PropertyList = () => {
             >
               Update this property!
             </Button>
-          </>
+          </div>
         ))}
       </div>
-    </>
   );
 };
 

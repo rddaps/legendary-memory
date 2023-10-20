@@ -5,7 +5,7 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     properties: async () => {
-      return await Property.find();
+      return await Property.find({}).populate('reviews');
     },
     property: async (parent, { _id }) => {
       return await Property.findById(_id).populate("property");
@@ -41,9 +41,10 @@ const resolvers = {
 
       return { token, user };
     },
-    addReview: async (parent, { reviewContent }, context) => {
+    addReview: async (parent, { propertyId, reviewContent }, context) => {
       if (context.user) {
         const review = await Review.create({
+          _id: propertyId,
           reviewContent,
           reviewAuthor: context.user.username,
         });

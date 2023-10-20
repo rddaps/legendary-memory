@@ -7,16 +7,11 @@ import { UPDATE_PROPERTY, ADD_REVIEW, ADD_COMMENT } from "../utils/mutations";
 
 import Auth from '../utils/auth';
 
-const Property = () => {
+const Property = ({ name, address, unitStyles, totalUnits, image, reviews }) => {
   const { propertyId } = useParams();
   const [newReview, setNewReview] = useState('');
   const [newComment, setNewComment] = useState('');
 
-    const { loading, data } = useQuery(QUERY_PROPERTY, {
-      variables: { propertyId: propertyId },
-    });
-
-    const property = data?.property || [];
     const [addReview] = useMutation(ADD_REVIEW);
     const [addComment] = useMutation(ADD_COMMENT);
 
@@ -70,29 +65,25 @@ const Property = () => {
           console.error(err);
         }
       };
-
-      if (!loading) {
-        return <h2>LOADING...</h2>;
-      }
-
+      let badkey = 0
       return (
         <div className="property-details">
-          <h2>{property.name}</h2>
-          <p>Address: {property.address}</p>
-          <p>Unit Styles: {property.unitStyles}</p>
-          <p>Total Units: {property.totalUnits}</p>
-          <p>Image: {property.image}</p>
+          <h2>{name}</h2>
+          <p>Address: {address}</p>
+          <p>Unit Styles: {unitStyles}</p>
+          <p>Total Units: {totalUnits}</p>
+          <p>Image: {image}</p>
           <h3>Reviews</h3>
           <ul>
-            {property.reviews.map(review => (
-              <li key={review.id}>
+            {reviews.map(review => (
+              <li key={++badkey}>
                 <p>{review.reviewContent}</p>
                 <p>{review.reviewAuthor}</p>
                 <p>{review.createdAt}</p>
                 <h4>Comments</h4>
                 <ul>
                   {review.comments.map(comment => (
-                    <li key={comment.id}>
+                    <li key={comment._id}>
                       <p>{comment.commentText}</p>
                       <p>{comment.commentAuthor}</p>
                       <p>{comment.createdAt}</p>
@@ -110,8 +101,6 @@ const Property = () => {
               </li>
             ))}
           </ul>
-    
-          { }
           <input
             type="text"
             value={newReview}

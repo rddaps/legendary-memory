@@ -11,11 +11,6 @@ const reviewSchema = new Schema({
     type: String,
     required: true
   },
-  property: {
-    type: Schema.Types.ObjectId,
-    ref: "Property",
-    required: true
-  },
   createdAt: {
     type: Date,
     default: Date.now
